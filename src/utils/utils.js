@@ -74,7 +74,9 @@ function fitNwSe(nw, se, width, height) {
   const dx = nwWorld.x < seWorld.x
     ? seWorld.x - nwWorld.x
     : 1 - nwWorld.x + seWorld.x;
-  const dy = seWorld.y - nwWorld.y;
+  const dy = nwWorld.y < seWorld.y
+    ? seWorld.y - nwWorld.y
+    : 1 - nwWorld.y + seWorld.y;
 
   if (dx <= 0 && dy <= 0) {
     return null;
